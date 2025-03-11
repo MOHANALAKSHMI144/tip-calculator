@@ -78,3 +78,43 @@ Total amount: $96.00
 Number of people: 2
 Amount per person: $48.00
 ```
+START
+
+# Step 1: Get inputs from the user
+PRINT "Enter the total bill amount (before tip):"
+READ bill_amount
+
+PRINT "Enter the quality of service (poor, fair, good, excellent):"
+READ service_quality
+
+PRINT "Enter the number of people splitting the bill:"
+READ num_people
+
+# Step 2: Determine tip percentage based on service quality
+IF service_quality = "poor" THEN
+    tip_percentage = 10
+ELSE IF service_quality = "fair" THEN
+    tip_percentage = 15
+ELSE IF service_quality = "good" THEN
+    tip_percentage = 18
+ELSE IF service_quality = "excellent" THEN
+    tip_percentage = 20
+ELSE
+    PRINT "Invalid service quality. Defaulting to 15% tip."
+    tip_percentage = 15
+
+# Step 3: Calculate tip amount
+tip_amount = (tip_percentage / 100) * bill_amount
+
+# Step 4: Calculate total bill amount (including tip)
+total_amount = bill_amount + tip_amount
+
+# Step 5: Calculate amount per person
+amount_per_person = total_amount / num_people
+
+# Step 6: Display the results
+PRINT "Tip Amount: ", tip_amount
+PRINT "Total Bill Amount (including tip): ", total_amount
+PRINT "Each person should pay: ", amount_per_person
+
+END
